@@ -1,3 +1,5 @@
+package academy.devdojo.javaoneforall.introduction;
+
 public class Class08MultidimensionalArrays01 {
     public static void main(String[] args) {
         int [][] days = new int[3][3];

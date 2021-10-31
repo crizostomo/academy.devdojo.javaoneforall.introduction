@@ -1,3 +1,5 @@
+package academy.devdojo.javaoneforall.introduction;
+
 public class Class06LoopStatements01 {
     public static void main(String[] args) {
         int counter = 10;
