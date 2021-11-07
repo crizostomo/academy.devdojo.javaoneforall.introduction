@@ -5,16 +5,26 @@ public class Anime {
     private String type;
     private int episodes;
     private String status;
+    private String studio;
+
+
     public Anime(String name, String type, int episodes, String status){
-        System.out.println("inside constructor");
+//        System.out.println("inside constructor");
+        this();
+//      this(); needs to be the first statement in a construction
         this.name = name;
         this.type = type;
         this.episodes = episodes;
         this.status = status;
     }
 
-    public Anime(){
+    public Anime(String name, String type, int episodes, String status, String studio){
+        this(name, type, episodes, status);
+        this.studio = studio;
+    }
 
+    public Anime(){
+        System.out.println("Inside no args constructor");
     }
 
 //    public void init(String name, String type, int episodes){
@@ -33,6 +43,8 @@ public class Anime {
         System.out.println(this.type);
         System.out.println(this.episodes);
         System.out.println(this.status);
+        System.out.println(this.studio);
+
     }
     public void setName(String name){
         this.name = name;
