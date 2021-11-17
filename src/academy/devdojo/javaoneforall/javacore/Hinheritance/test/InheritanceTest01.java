@@ -1,6 +1,7 @@
 package academy.devdojo.javaoneforall.javacore.Hinheritance.test;
 
 //71 - Object Orientation - Inheritance pt 01
+//74 - Object Orientation - Inheritance pt 04 - Constructors
 
 import academy.devdojo.javaoneforall.javacore.Hinheritance.domain.Address;
 import academy.devdojo.javaoneforall.javacore.Hinheritance.domain.Employee;
@@ -11,15 +12,13 @@ public class InheritanceTest01 {
         Address address = new Address();
         address.setStreet("12th ave");
         address.setZipcode("1321-xxx");
-        Employee employee = new Employee();
-        employee.setName("Vegeta");
+        Employee employee = new Employee("Vegeta");
         employee.setSocialSecurityNumber("Plus than 8000");
         employee.setSalary(8000);
         employee.setAddress(address);
         employee.print();
         System.out.println("-------------------------");
-        Manager manager = new Manager();
-        manager.setName("Mestre Kame");
+        Manager manager = new Manager("Mestre Kame");
         manager.setSocialSecurityNumber("Less than 8000");
         manager.setSalary(80000);
         manager.setAddress(address);

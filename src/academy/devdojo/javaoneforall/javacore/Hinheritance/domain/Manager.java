@@ -1,10 +1,32 @@
 package academy.devdojo.javaoneforall.javacore.Hinheritance.domain;
 
 //71 - Object Orientation - Inheritance pt 01
-
+//72 - Object Orientation - Inheritance pt 02 - super
+//73 - Object Orientation - Inheritance pt 03 - protected
+//74 - Object Orientation - Inheritance pt 04 - Constructors
 public class Manager extends Employee {
 
     private String department;
+
+//We need to add name/Constructor as well for Manager, because is came from employee
+
+    public Manager(String name){
+        super(name);
+    }
+
+//The super needs to be the first valid statement
+
+    @Override
+    public void print(){
+        super.print();
+        System.out.println(this.department);
+        paymentReport();
+    }
+
+    public void paymentReport(){
+        System.out.println("The employee "+this.name+" from the department "+this.department +
+                " received a salary of "+this.salary);
+    }
 
     public String getDepartment() {
         return department;
