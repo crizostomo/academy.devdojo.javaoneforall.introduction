@@ -2,8 +2,18 @@ package academy.devdojo.javaoneforall.javacore.Ycollection.domain;
 
 //169 - Collection pt 09 - Sorting lists pt 01
 //170 - Collection pt 10 - Sorting lists pt 02 - Comparable
+//171 - Collection pt 11 - Sorting lists pt 03 - Comparator
 
+import java.util.Comparator;
 import java.util.Objects;
+
+class MangaByTitleComparator implements Comparator<Manga>{
+
+    @Override
+    public int compare(Manga manga1, Manga manga2) {
+        return manga1.getTitle().compareTo(manga2.getTitle());
+    }
+}
 
 public class Manga implements Comparable<Manga> {
     private Long id;
