@@ -3,22 +3,16 @@ package academy.devdojo.javaoneforall.javacore.Ycollection.domain;
 //169 - Collection pt 09 - Sorting lists pt 01
 //170 - Collection pt 10 - Sorting lists pt 02 - Comparable
 //171 - Collection pt 11 - Sorting lists pt 03 - Comparator
+//174 - Collection pt 14 - Iterator
 
 import java.util.Comparator;
 import java.util.Objects;
-
-class MangaByTitleComparator implements Comparator<Manga>{
-
-    @Override
-    public int compare(Manga manga1, Manga manga2) {
-        return manga1.getTitle().compareTo(manga2.getTitle());
-    }
-}
 
 public class Manga implements Comparable<Manga> {
     private Long id;
     private String title;
     private double price;
+    private int quantity;
 
 
     public Manga(Long id, String title, double price) {
@@ -27,6 +21,11 @@ public class Manga implements Comparable<Manga> {
         this.id = id;
         this.title = title;
         this.price = price;
+    }
+
+    public Manga(Long id, String title, double price, int quantity) {
+        this(id, title, price);
+        this.quantity = quantity;
     }
 
     @Override //We use this to check if the mangas are equal by title and id
@@ -48,7 +47,16 @@ public class Manga implements Comparable<Manga> {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", price=" + price +
+                ", quantity=" + quantity +
                 '}';
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public Long getId() {
