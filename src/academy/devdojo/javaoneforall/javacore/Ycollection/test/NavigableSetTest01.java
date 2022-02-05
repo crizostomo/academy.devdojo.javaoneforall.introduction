@@ -37,17 +37,31 @@ public class NavigableSetTest01 {
         mangas.add(new Manga(1L, "Bersek", 29.99, 0));
         mangas.add(new Manga(2L, "Attack on Titan", 39.99, 8));
         mangas.add(new Manga(4L, "Dragon Ball Z", 89.99, 0));
-        mangas.add(new Manga(10L, "Slime", 9.99, 0));
-        mangas.add(new Manga(11L, "Yuyu Hakusho", 2.99, 0));
+        mangas.add(new Manga(10L, "Slime", 1.99, 0));
 
         //mangas.descendingSet()
         for (Manga manga : mangas) { //descendingSet if you want from the lowest to the highes
             System.out.println(manga);
         }
-        //lower
-        //floor
-        //higher
-        //ceilling
+        Manga yuyuHakusho = new Manga(11L, "Yuyu Hakusho", 2.99, 0);
+        //lower <
+        //floor <=
+        //higher >
+        //ceilling >=
+
+        System.out.println("------------------");
+        System.out.println(mangas.lower(yuyuHakusho));
+        System.out.println(mangas.floor(yuyuHakusho));
+        System.out.println(mangas.higher(yuyuHakusho));
+        System.out.println(mangas.ceiling(yuyuHakusho));
+
+        System.out.println("---------------");
+
+        System.out.println(mangas.size());
+        System.out.println(mangas.pollLast()); //pollFirst
+        System.out.println(mangas.size());
+
+        //evertything based on price
 
     }
 }
