@@ -7,6 +7,12 @@ package academy.devdojo.javaoneforall.javacore.ZZIjdbc.test;
 //260 - JDBC pt 09 - Updating data with Statement
 //261 - JDBC pt 10 - Searching data with ResultSet pt 01 - findAll
 //264 - JDBC pt 13 - DriverMetaData
+//265 - JDBC pt 14 - ResultSet.TYPE_SCROLL_INSENSITIVE
+//266 - JDBC pt 15 - Updating rows with ResultSet
+//267 - JDBC pt 16 - Inserting and Deleting rows with ResultSet
+//269 - JDBC pt 18 - PreparedStatement pt 02
+//270 - JDBC pt 19 - CallableStatement
+//271 - JDBC pt 20 - Connected RowSet - JdbcRowSet pt 01
 
 import academy.devdojo.javaoneforall.javacore.ZZIjdbc.conn.ConnectionFactory;
 import academy.devdojo.javaoneforall.javacore.ZZIjdbc.domain.Producer;
@@ -28,7 +34,7 @@ public class ConnectionFactoryTest01 {
     public static void main(String[] args) {
 //        Producer producer = Producer.ProducerBuilder.builder().name("Madhouse").build();
         Producer producer = Producer.builder().name("Studio Deen").build();
-        Producer producerToUpdate = Producer.builder().id(1).name("MADHOUSE").build();
+        Producer producerToUpdate = Producer.builder().id(1).name("madhouse").build();
 
 //        ProducerService.save(producer);
 //        ProducerService.delete(4);
@@ -36,6 +42,21 @@ public class ConnectionFactoryTest01 {
 //        List<Producer> producers = ProducerService.findAll();
 //        List<Producer> producers = ProducerService.findByName("h");
 //        log.info("Producers found '{}'", producers);
-        ProducerService.showResultSetMetaData();
+//        ProducerService.showResultSetMetaData();
+//        ProducerService.showDriverMetaData();
+//        ProducerService.showTypeScrollWorking();
+//        List<Producer> producers = ProducerService.findByNameAndUpdateToUpperCase("Deen");
+//        List<Producer> producers = ProducerService.findByNameAndInsertWhenNotFound("Bones");
+//        log.info("Producers found '{}'", producers);
+//        ProducerService.findByNameAndDelete("Bones");
+
+//        List<Producer> producers = ProducerService.findByNamePreparedStatement("mad");
+//        log.info("Producers found '{}'", producers);
+//        ProducerService.updatePreparedStatement(producerToUpdate);
+
+        List<Producer> producers = ProducerService.findByNameCallableStatement("mad");
+        log.info("Producers found '{}'", producers);
+
+
     }
 }
