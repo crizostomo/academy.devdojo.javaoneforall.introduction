@@ -51,7 +51,7 @@ public class ProducerRepository {
         for(Producer p:producers) {
             try(PreparedStatement ps = conn.prepareStatement(sql)) {
                 ps.setString(1, p.getName());
-                if(p.getName().equals("White Fox")) throw new SQLException("Can't save white fox")
+                if(p.getName().equals("White Fox")) throw new SQLException("Can't save white fox");
                 ps.execute();
                 log.info("Saving '{}'", p.getName());
             }catch (Exception e){
@@ -167,6 +167,14 @@ public class ProducerRepository {
         return producers;
     }
 
+
+    private static PreparedStatement PreparedStatementFindByName(Connection conn, String name) throws SQLException {
+        String sql = "SELECT * FROM anime_store.producer where name like ?;";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, "%"+name+"%");
+        return ps;
+    }
+
     public static List<Producer> findByNameCallableStatement(String name){
         List<Producer> producers = new ArrayList<>();
         try(Connection conn = ConnectionFactory.getConnection();
@@ -186,12 +194,6 @@ public class ProducerRepository {
         return producers;
     }
 
-    private static PreparedStatement PreparedStatementFindByName(Connection conn, String name) throws SQLException {
-        String sql = "SELECT * FROM anime_store.producer where name like ?;";
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, "%"+name+"%");
-        return ps;
-    }
 
     private static CallableStatement callableStatementFindByName(Connection conn, String name) throws SQLException {
         String sql = "CALL `anime_store`.`sp_get_producer_by_name`(?);";
