@@ -49,19 +49,21 @@ public class ProducerRepository {
 
     public static Optional<Producer> findById(Integer id){
         log.info("Finding producer by id '{}'", id);
+        Optional<Producer> optionalProducer = Optional.empty();
         try(Connection conn = ConnectionFactory.getConnection();
             PreparedStatement ps = createPrepareStatementFindById(conn,id);
             ResultSet rs = ps.executeQuery();){
-            if(!rs.next()) return Optional.empty();
+            if(rs.next()) {
                 return Optional.of(Producer
                         .builder()
                         .id(rs.getInt("id"))
                         .name(rs.getString("name"))
                         .build());
+            }
         } catch (SQLException e) {
             log.error("Error trying to find producers by name", e);
         }
-        return Optional.empty();
+        return optionalProducer;
     }
 
 
@@ -105,6 +107,24 @@ public class ProducerRepository {
         String sql = "INSERT INTO `anime_store`.`producer` (`Name`) VALUES (?);";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, producer.getName());
+        return ps;
+    }
+
+    public static void update(Producer producer){
+        log.info("Updating producer '{}'", producer);
+        try(Connection conn = ConnectionFactory.getConnection();
+            PreparedStatement ps = createPreparedStatementUpdate(conn, producer)){
+            ps.execute();
+        } catch (SQLException e) {
+            log.error("Error trying to updated producer '{}'", producer.getId(), e);
+        }
+    }
+
+    private static PreparedStatement createPreparedStatementUpdate(Connection conn, Producer producer) throws SQLException {
+        String sql = "UPDATE `anime_store`.`producer` SET `Name` = ? WHERE (`id` = ?);";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, producer.getName());
+        ps.setInt(2, producer.getId());
         return ps;
     }
 
