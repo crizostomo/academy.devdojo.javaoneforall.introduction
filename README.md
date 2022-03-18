@@ -1,4 +1,4 @@
-# In this Project - Academy DevDojo - It will be displayed all of the exercises learned and applied during the whole course
+# In this Project - Academy DevDojo - It will be displayed all the exercises learned and applied during the whole course
 
 ## 📝 Table of Contents
 
@@ -11,7 +11,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-This is a compilation that contains all of the exercises applied since Arrays to the well-known CRUD. It will give you a list of all of them copied here.
+This is a compilation that contains all the exercises applied since Arrays to the well-known CRUD. It will give you a list of all of them copied here.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -44,6 +44,7 @@ getting the desired results.
 ## ⛏️ Built Using <a name = "built_using"></a>
 
 - [MySQL](https://https://www.mysql.com/) - Database
+- [Docker](https://www.docker.com/products/docker-desktop/) - Container
 - [Java](https://www.oracle.com/java/technologies/java-se-glance.html) - Language
 - [IntelliJ](https://www.jetbrains.com/idea/download/#section=windows) - IDE
 
@@ -54,8 +55,8 @@ getting the desired results.
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
 - Inspiration
-    - William Suane, the one who is the person responsible for all of this resource available for free for the whole community Java
-    - Caio Costa, my friend and professor and responsible for having said that following William's videos would help me in my development
+    - William Suane, the one responsible for all of this resource available for free for the whole community Java.
+    - Caio Costa, my friend and professor and responsible for having said that following William's videos would help me in my development.
 - References
     - [Youtube - DevDojo Academy](https://www.youtube.com/channel/UCRt2WSC8kaanasuOnwHnbcw) - Channel on YT
     - [Youtube - Caio Rodrigues - BackEnd Java](https://www.youtube.com/c/CaioRodriguesBackEndJava) - Channel on YT
